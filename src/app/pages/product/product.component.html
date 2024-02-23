@@ -1,0 +1,22 @@
+<nz-table #basicTable [nzData]="listOfData">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Discription</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of  listOfData">
+            <td>{{ data.title }}</td>
+            <td>{{ data.price }}</td>
+            <td>{{ data.discountPercentage }}</td>
+            <td>
+                <a>Action 一 {{ data.title }}</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a (click)="addtoCart(data)" class="addToCartBtn">Add to Chart </a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
