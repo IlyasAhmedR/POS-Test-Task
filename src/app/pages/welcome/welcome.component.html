@@ -1,0 +1,47 @@
+<nz-table #sortTable [nzData]="listOfData" nzTableLayout="fixed">
+    <thead>
+        <tr>
+            <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">
+                {{ column.title }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of sortTable.data">
+            <td><img height="50"  src="{{data.images == undefined ? '': data.images [0]}}" /> </td>
+            <td>{{ data.title }}</td>
+            <td>{{ data.price | number:'1.2-2'  }}</td>
+            <td>{{ data.description }}</td>
+            <td>
+                <a>Action 一 {{ data.title }}</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a (click)="addtoCart(data)">Add to Chart </a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
+
+
+
+<!-- <nz-table #basicTable [nzData]="listOfData">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Discription</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of  listOfData">
+            <td>{{ data.title }}</td>
+            <td>{{ data.price }}</td>
+            <td>{{ data.discountPercentage }}</td>
+            <td>
+                <a>Action 一 {{ data.title }}</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a (click)="addtoCart(data)">Add to Chart </a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table> -->
